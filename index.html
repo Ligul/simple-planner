@@ -16,14 +16,39 @@
 <body>
     <div class="container mt-3">
         <h1>Контент Календарь</h1>
-        
+
+        <hr>
+
+        <!-- Календарь -->
+        <div class="row mb-3">
+            <div class="col">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <button onclick="prevMonth()" class="btn btn-secondary">&lt;</button>
+                    <h3 id="currentMonth"></h3>
+                    <button onclick="nextMonth()" class="btn btn-secondary">&gt;</button>
+                </div>
+                <div class="row">
+                    <div class="col">Пн</div>
+                    <div class="col">Вт</div>
+                    <div class="col">Ср</div>
+                    <div class="col">Чт</div>
+                    <div class="col">Пт</div>
+                    <div class="col">Сб</div>
+                    <div class="col">Вс</div>
+                </div>
+                <div id="calendar"></div>
+            </div>
+        </div>
+
+        <hr>
+
         <!-- Управление каналами -->
         <div class="row mb-3">
             <div class="col">
                 <h3>Каналы</h3>
                 <div class="input-group mb-3">
                     <input type="text" id="channelName" class="form-control" placeholder="Название канала">
-                    <input type="color" id="channelColor" class="form-control form-control-color">
+                    <input type="color" id="channelColor" class="form-control form-control-color" style="height: 50px;">
                     <button onclick="addChannel()" class="btn btn-primary" id="channelButton">Добавить канал</button>
                 </div>
                 <div id="channelsList"></div>
@@ -39,6 +64,7 @@
                     <select id="repeatType" class="form-control">
                         <option value="weekly">Еженедельно</option>
                         <option value="monthly">Ежемесячно</option>
+                        <option value="yearly">Ежегодно</option>
                     </select>
                     <input type="number" id="repeatValue" class="form-control" placeholder="День (1-31 или 1-7)">
                     <button onclick="addPlan()" class="btn btn-primary" id="planButton">Добавить план</button>
@@ -62,26 +88,8 @@
             </div>
         </div>
 
-        <!-- Календарь -->
-        <div class="row mb-3">
-            <div class="col">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <button onclick="prevMonth()" class="btn btn-secondary">&lt;</button>
-                    <h3 id="currentMonth"></h3>
-                    <button onclick="nextMonth()" class="btn btn-secondary">&gt;</button>
-                </div>
-                <div class="row">
-                    <div class="col">Пн</div>
-                    <div class="col">Вт</div>
-                    <div class="col">Ср</div>
-                    <div class="col">Чт</div>
-                    <div class="col">Пт</div>
-                    <div class="col">Сб</div>
-                    <div class="col">Вс</div>
-                </div>
-                <div id="calendar"></div>
-            </div>
-        </div>
+        <hr>
+
     </div>
 
     <footer class="container mt-3" style="margin-bottom: 20px;">
