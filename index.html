@@ -23,7 +23,7 @@
                 border-radius: 3px;
             }
             .planned {
-                opacity: 0.5;
+                opacity: 1;
             }
             .published {
                 opacity: 1;
@@ -585,20 +585,23 @@
                     });
 
                     const eventsHtml = dayEvents
-                        .map(
-                            (event) => `
+                        .map((event) => {
+                            const backgroundColor = event.planned
+                                ? `${event.color}75`
+                                : event.color;
+
+                            return `
                     <div class="event ${
                         event.planned ? "planned" : "published"
                     }" 
-                         style="background-color: ${event.color}">
+                        style="background-color: ${backgroundColor};">
                         ${
                             event.link
-                                ? `<a href="${event.link}" target="_blank" class="text-dark">${event.title}</a>`
+                                ? `<a href="${event.link}" target="_blank">${event.title}</a>`
                                 : event.title
                         }
-                    </div>
-                `
-                        )
+                    </div>`;
+                        })
                         .join("");
 
                     currentRow.innerHTML += `
